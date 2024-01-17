@@ -15,8 +15,7 @@ stages {
         }
         stage('deployment') {
             steps {
-                sh 'ssh root@172.31.28.235'
-                sh 'cp /home/slave1/workspace/pipelinejob_helloworld/target/hello-world-war-1.0.0.war /opt/apache-tomcat-8.5.98/webapps/'
+                    sh 'scp /home/slave1/workspace/pipelinejob_helloworld/target/hello-world-war-1.0.0.war root@172.31.28.235:/opt/apache-tomcat-8.5.98/webapps/'
             }
         }
     }
