@@ -15,7 +15,7 @@ stages {
         }
         stage('deployment') {
             steps {
-                sh 'cp /home/slave1/workspace/pipelinejob_helloworld/target/ /opt/apache-tomcat-8.5.98/webapps/'
+                sh 'cp /home/slave1/workspace/pipelinejob_helloworld/target/hello-world-war-1.0.0.war /opt/apache-tomcat-8.5.98/webapps/'
             }
         }
     }
