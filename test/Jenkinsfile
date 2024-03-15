@@ -12,11 +12,9 @@ pipeline {
     stage('build') {
       steps {
         sh 'pwd' 
-          dir("hello-world-war") {
-            sh 'echo "inside directory"'
-            sh 'pwd'
-            sh ' docker build -t tcat-image1:1.0 .'
-          }
+        sh 'echo "inside directory"'
+        sh 'pwd'
+        sh ' docker build -t tcat-image1:1.0 .'
       }
     }
     stage('deploy') {
