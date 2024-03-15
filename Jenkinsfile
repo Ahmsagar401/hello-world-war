@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave1' }
+    agent any
 stages {
         stage('checkout') {
             steps {
@@ -9,8 +9,9 @@ stages {
         }
         stage('build') {
             steps {
-                sh 'mvn --version' 
-                sh 'mvn clean install'
+                sh 'echo "inside build check" 
+                dir("hello-world-war") {
+                    sh'echo "inside directory"
             }
         }
         stage('deployment') {
