@@ -12,12 +12,14 @@ stages {
                 sh 'echo "inside build check" 
                 dir("hello-world-war") {
                     sh'echo "inside directory"
+                    sh' docker build -t tomcat-image1:1.0'
+                }    
             }
         }
-        stage('deployment') {
+        stage('deploy') {
             steps {
-                    sh 'ssh root@172.31.28.235'
-                    sh 'scp /home/slave1/workspace/pipelinejob_helloworld/target/hello-world-war-1.0.0.war root@172.31.28.235:/opt/apache-tomcat-8.5.98/webapps/'
+                    sh 'docker rm -f tomcat-container'
+                    sh 'docker run -d -p 8080:8080 --name tomcat-container tomcat-image1:1.0'
             }
         }
     }
