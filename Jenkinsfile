@@ -11,9 +11,10 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'echo "inside build check"' /
+        sh 'pwd' 
           dir("hello-world-war") {
             sh 'echo "inside directory"'
+            sh 'pwd'
             sh ' docker build -t tcat-image1:1.0 .'
           }
       }
