@@ -12,7 +12,7 @@ stages {
                 sh 'echo "inside build check"'
                 dir("hello-world-war") {
                     sh'echo "inside directory"'
-                    sh' docker build -t tcat-image1:1.0'
+                    sh' docker build -t tcat-image1:1.0 .'
                 }    
             }
         }
