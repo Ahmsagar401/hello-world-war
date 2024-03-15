@@ -10,10 +10,8 @@ stages {
         stage('build') {
             steps {
                 sh 'echo "inside build check"'
-                / dir("hello-world-war") {
-                    sh'echo "inside directory"'
-                    sh' docker build -t tcat-image1:1.0 .'
-                  } 
+                sh'echo "inside directory"'
+                sh' docker build -t tcat-image1:1.0 .' 
             }
         }
         stage('deploy') {
