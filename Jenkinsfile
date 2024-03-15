@@ -19,7 +19,7 @@ stages {
         stage('deploy') {
             steps {
                     sh 'docker rm -f tcat-container'
-                    sh 'docker run -d -p 8080:8080 --name tcat-container tcat-image1:1.0'
+                    sh 'docker run -d -p 8081:8080 --name tcat-container tcat-image1:1.0'
             }
         }
     }
