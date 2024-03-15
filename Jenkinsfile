@@ -11,7 +11,7 @@ stages {
             steps {
                 sh 'echo "inside build check" 
                 dir("hello-world-war") {
-                    sh'echo "inside directory"
+                    sh'echo "inside directory"'
                     sh' docker build -t tomcat-image1:1.0'
                 }    
             }
