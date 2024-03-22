@@ -33,17 +33,21 @@ pipeline {
         stage('deploy to slave1') {
           agent { label 'slave1' }
           steps {
+            withCredentials([usernamePassword(credentialsId: '6208e6bc-1e1e-48b2-b8fa-4f4708d4effe', passwordVariable: 'password', usernameVariable: 'username')]) {
             sh 'docker login -u $username -p $password'
             sh 'docker pull ashish401/private-repo:${BUILD_NUMBER}'
             sh 'docker run -d -p 8081:8080 --name tcat-container1 tcat-image1:${BUILD_NUMBER}'
+            }
           }
         }
         stage('deploy to slave2') {
           agent { label 'slave2' }
           steps {
+            withCredentials([usernamePassword(credentialsId: '6208e6bc-1e1e-48b2-b8fa-4f4708d4effe', passwordVariable: 'password', usernameVariable: 'username')]) {
             sh 'docker login -u $username -p $password'
             sh 'docker pull ashish401/private-repo:${BUILD_NUMBER}'
             sh 'docker run -d -p 8081:8080 --name tcat-container2 tcat-image1:${BUILD_NUMBER}'
+            }
           }
         }
       }
