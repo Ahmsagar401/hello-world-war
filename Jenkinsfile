@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'slave1'
+    label 'any'
   }
   stages {
     stage('checkout') {
@@ -11,13 +11,22 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'echo "inside build check"' /
-          dir("hello-world-war") {
+        sh 'echo "inside build check"' 
+        dir("hello-world-war") {
             sh 'echo "inside directory"'
-            sh ' docker build -t tcat-image1:1.0 .'
+            sh ' docker build -t tcat-image1:${BUILD_NUMBER} .'
           }
       }
     }
+    
+
+
+
+
+
+
+
+    
     stage('deploy') {
       steps {
         sh 'docker rm -f tcat-container'
