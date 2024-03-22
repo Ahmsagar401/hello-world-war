@@ -36,7 +36,7 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: '6208e6bc-1e1e-48b2-b8fa-4f4708d4effe', passwordVariable: 'password', usernameVariable: 'username')]) {
             sh 'docker login -u $username -p $password'
             sh 'docker pull ashish401/private-repo:${BUILD_NUMBER}'
-            sh 'docker run -d -p 8081:8080 --name tcat-container1 ashish401/private-repo:${BUILD_NUMBER}'
+            sh 'docker run -d -p 8082:8080 --name tcat-container3 ashish401/private-repo:${BUILD_NUMBER}'
             }
           }
         }
@@ -46,7 +46,7 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: '6208e6bc-1e1e-48b2-b8fa-4f4708d4effe', passwordVariable: 'password', usernameVariable: 'username')]) {
             sh 'docker login -u $username -p $password'
             sh 'docker pull ashish401/private-repo:${BUILD_NUMBER}'
-            sh 'docker run -d -p 8081:8080 --name tcat-container2 ashish401/private-repo:${BUILD_NUMBER}'
+            sh 'docker run -d -p 8083:8080 --name tcat-container4 ashish401/private-repo:${BUILD_NUMBER}'
             }
           }
         }
