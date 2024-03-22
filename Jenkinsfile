@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'Built-InNode'
+    label 'any'
   }
   stages {
     stage('checkout') {
