@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent { label 'slave1' }
   stages {
     stage('checkout') {
       agent { label 'prod-server' }
@@ -10,7 +10,6 @@ pipeline {
     }
     
     stage('build') {
-      agent { label 'prod-server' }
       steps {
         sh 'echo "inside build check"' 
         dir("hello-world-war") {
